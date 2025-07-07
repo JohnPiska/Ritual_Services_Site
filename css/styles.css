@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+
+:root {
+  --primary-dark:   #2C3E50;
+  --accent-wine:    #7D3C49;
+  --background:     #F5F5F5;
+  --text-dark:      #333333;
+  --text-light:     #777777;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Merriweather', serif;
+  background-color: var(--background);
+  color: var(--text-dark);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Шапка */
+header {
+  background-color: var(--primary-dark);
+  color: white;
+  padding: 15px 0;
+  display: flex;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo-block {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.logo-text strong {
+  font-size: 1.1rem;
+  color: white;
+}
+
+.logo-text small {
+  color: #cccccc;
+  font-size: 0.8rem;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+  color: var(--accent-wine);
+}
+
+/* Главный блок */
+.hero {
+  background-color: white;
+  padding: 60px 20px;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.hero h2 {
+  color: var(--primary-dark);
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+.hero p {
+  color: var(--text-light);
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hero .btn {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: var(--accent-wine);
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  font-weight: 700;
+}
+
+.hero .btn:hover {
+  background-color: #5c2d36;
+}
+
+/* Подвал */
+footer {
+  background-color: var(--primary-dark);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-menu {
+    width: 100%;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .logo-block {
+    margin-bottom: 10px;
+  }
+}
+
+/* Услуги */
+
+.services-section {
+  padding: 60px 20px;
+  background-color: white;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.services-section h2 {
+  color: var(--primary-dark);
+  margin-bottom: 40px;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+.service-item {
+  max-width: 150px;
+  text-align: center;
+}
+
+.service-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.service-item p {
+  font-weight: 700;
+  color: var(--text-dark);
+}
