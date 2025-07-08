@@ -44,11 +44,27 @@ header {
 }
 
 .logo-block {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
+    text-decoration: none !important;
+    color: inherit !important;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  .logo-block:link,
+  .logo-block:visited,
+  .logo-block:hover,
+  .logo-block:active,
+  .logo-block:focus {
+    text-decoration: none !important;
+    color: inherit !important;
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  
 .logo-img {
   width: 50px;
   height: 50px;
@@ -187,4 +203,93 @@ footer {
 .service-item p {
   font-weight: 700;
   color: var(--text-dark);
+}
+
+/* О нас */
+
+.about-section {
+  padding: 60px 20px;
+  background-color: white;
+  font-size: 18px;
+  min-height: 100vh;
+}
+
+.about-section h2 {
+  color: var(--primary-dark);
+  margin-bottom: 30px;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.about-section p {
+  margin-bottom: 20px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--text-dark);
+}
+
+/* Контакты */
+
+.contacts-section {
+  padding: 60px 20px;
+  background-color: white;
+  text-align: center;
+}
+
+.contacts-section h2,
+.contacts-section h3 {
+  color: var(--primary-dark);
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.contact-details {
+  margin-bottom: 40px;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.map-placeholder {
+  background-color: #ddd;
+  height: 250px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  font-family: 'Merriweather', serif;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.contact-form button {
+  background-color: var(--accent-wine);
+  color: white;
+  padding: 10px;
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #5c2d36;
 }
