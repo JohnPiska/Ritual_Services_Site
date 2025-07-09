@@ -30,6 +30,25 @@
 
   <main>
     <section class="hero">
+      <div class="hero-buttons">
+        <a href="contacts.html" class="btn">Получить консультацию</a>
+        <button id="open-guide" class="btn outline">Что делать, если умер близкий человек?</button>
+      </div>
+
+      <div class="guide-drop" id="guide-drop">
+        <div class="guide-content">
+          <h3>Что делать, если умер близкий человек?</h3>
+          <p>
+            1. Сохраняйте спокойствие и вызовите скорую помощь<br>
+            2. Получите справку о смерти<br>
+            3. Позвоните в ритуальную службу: <strong>+7 (___) ___-__-__</strong><br>
+            4. Подготовьте документы для оформления<br>
+            5. Мы поможем на всех этапах
+          </p>
+          <a href="../Что делать/index.html" class="btn small">Подробнее</a>
+        </div>
+      </div>
+
       <h2>Профессиональная помощь в трудную минуту</h2>
       <p>Организация похорон, транспортировка, венки, круглосуточная поддержка.</p>
       <a href="contacts.html" class="btn">Связаться с нами</a>
@@ -41,5 +60,31 @@
       <p>&copy; 2025 МБУ "Ритуальные услуги"</p>
     </div>
   </footer>
+  <div class="modal-overlay" id="modal-overlay"></div>
+
+  <!-- Модальное окно -->
+  <div class="modal" id="contact-modal">
+    <div class="modal-header">
+      <h3>Обратная связь</h3>
+      <button class="modal-close" id="modal-close">✖</button>
+    </div>
+    <form class="modal-form" action="#" method="post">
+      <label>
+        Имя:
+        <input type="text" name="name" required>
+      </label>
+      <label>
+        Телефон:
+        <input type="tel" name="phone" required>
+      </label>
+      <label>
+        Сообщение:
+        <textarea name="message" rows="4" required></textarea>
+      </label>
+      <button type="submit" class="btn">Отправить</button>
+    </form>
+  </div>
+
+  <script src="../Assets/main.js"></script>
 </body>
 </html>

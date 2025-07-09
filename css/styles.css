@@ -20,51 +20,50 @@ body {
   color: var(--text-dark);
   line-height: 1.6;
   font-size: 16px;
+  padding-top: 90px;
 }
 
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
+html, body {
+  height: 100%;
 }
 
-/* Шапка */
+
+/* ---------------------- Шапка ---------------------- */
+
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   background-color: var(--primary-dark);
   color: white;
   padding: 15px 0;
-  display: flex;
+  z-index: 1000;
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
+
+header.scrolled {
+  background-color: rgba(44, 62, 80, 0.5);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
 
 .header-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .logo-block {
-    text-decoration: none !important;
-    color: inherit !important;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    outline: none !important;
-    border: none !important;
-    box-shadow: none !important;
-  }
-  .logo-block:link,
-  .logo-block:visited,
-  .logo-block:hover,
-  .logo-block:active,
-  .logo-block:focus {
-    text-decoration: none !important;
-    color: inherit !important;
-    outline: none !important;
-    border: none !important;
-    box-shadow: none !important;
-  }
-  
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .logo-img {
   width: 50px;
   height: 50px;
@@ -137,6 +136,157 @@ header {
   background-color: #5c2d36;
 }
 
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.btn.outline {
+  background: transparent;
+  border: 2px solid var(--accent-wine);
+  color: var(--accent-wine);
+}
+
+.btn.outline:hover {
+  background-color: var(--accent-wine);
+  color: white;
+}
+
+.btn.small {
+  padding: 6px 14px;
+  font-size: 14px;
+}
+
+.btn.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #555;
+}
+
+/* Блок под кнопкой */
+
+.guide-drop {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+  background: #ffffff;
+  border-top: 2px solid var(--accent-wine);
+  border-radius: 6px;
+  margin-top: 20px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+
+.guide-drop.open {
+  max-height: 500px;
+  padding: 20px;
+}
+
+.guide-content h3 {
+  margin-bottom: 10px;
+  color: var(--primary-dark);
+}
+
+.guide-content p {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.guide-content .btn.small {
+  margin-top: 10px;
+}
+
+/* Затемнение фона */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+}
+
+/* Попап */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  z-index: 1000;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* Активный */
+.modal.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-overlay.active {
+  display: block;
+}
+
+/* Шапка попапа */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 20px;
+  color: var(--primary-dark);
+}
+
+.modal-close {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #666;
+}
+
+/* Форма */
+.modal-form label {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+.modal-form input,
+.modal-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  font-family: inherit;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
 /* Подвал */
 footer {
   background-color: var(--primary-dark);
@@ -165,7 +315,7 @@ footer {
   }
 }
 
-/* Услуги */
+/* ---------------------- Услуги ---------------------- */
 
 .services-section {
   padding: 60px 20px;
@@ -292,4 +442,52 @@ footer {
 
 .contact-form button:hover {
   background-color: #5c2d36;
+}
+
+/* Гайд */
+
+/* Стили для заголовков */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: var(--primary-dark);
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: var(--accent-wine);
+  border-bottom: 2px solid var(--accent-wine);
+  padding-bottom: 5px;
+}
+
+/* Основной текст */
+main p, main ol, main ul {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  max-width: 720px;
+  margin: 0 auto 20px auto;
+}
+
+/* Отступы для списка */
+main ol {
+  padding-left: 20px;
+}
+
+/* Ссылки */
+main a {
+  color: var(--accent-wine);
+  text-decoration: none;
+}
+
+main a:hover {
+  text-decoration: underline;
+}
+
+/* Контейнер main */
+main.container {
+  padding: 40px 20px;
 }
