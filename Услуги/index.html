@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" href="../images/favicon.svg" type="image/svg+xml" />
   <title>Услуги | МБУ "Ритуальные услуги"</title>
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/styles.css" />
 </head>
 <body>
   <header>
@@ -13,14 +13,14 @@
       <a href="../Главная/index.html" class="logo-block">
         <img src="../images/logo.png" alt="Логотип" class="logo-img" />
         <div class="logo-text">
-            <strong>МБУ "Ритуальные услуги"</strong><br />
-            <small>Муниципальное бюджетное учреждение</small>
+          <strong>МБУ "Ритуальные услуги"</strong><br />
+          <small>Муниципальное бюджетное учреждение</small>
         </div>
       </a>
       <nav>
         <ul class="nav-menu">
-          <li><a href="../Главная/index.html">Главная</a></li>
-          <li><a href="index.html">Услуги</a></li>
+          <li><a href="../Каталог/index.html">Каталог</a></li>
+          <li><a href="index.html" class="active">Услуги</a></li>
           <li><a href="../О нас/index.html">О нас</a></li>
           <li><a href="../Контакты/index.html">Контакты</a></li>
         </ul>
@@ -33,30 +33,26 @@
       <div class="container">
         <h2>Наши услуги</h2>
         <div class="services-grid">
-          <div class="service-item">
-            <img src="icons/funeral-car.png" alt="Похоронный транспорт">
+          <a href="details/transport.html" class="service-item">
+            <img src="../images/icons/funeral-car.png" alt="Похоронный транспорт" />
             <p>Похоронный транспорт</p>
-          </div>
-          <div class="service-item">
-            <img src="icons/grave-digging.png" alt="Копка могил">
+          </a>
+          <a href="details/digging.html" class="service-item">
+            <img src="../images/icons/grave-digging.png" alt="Копка могил" />
             <p>Копка могил</p>
-          </div>
-          <div class="service-item">
-            <img src="icons/coffin.png" alt="Гробы и атрибутика">
-            <p>Гробы и атрибутика</p>
-          </div>
-          <div class="service-item">
-            <img src="icons/wreath.png" alt="Венки и оформление">
-            <p>Венки и оформление</p>
-          </div>
-          <div class="service-item">
-            <img src="icons/document.png" alt="Оформление документов">
+          </a>
+          <a href="details/paperwork.html" class="service-item">
+            <img src="../images/icons/document.png" alt="Оформление документов" />
             <p>Оформление документов</p>
-          </div>
-          <div class="service-item">
-            <img src="icons/cremation.png" alt="Организация кремации">
+          </a>
+          <a href="details/cremation.html" class="service-item">
+            <img src="../images/icons/cremation.png" alt="Организация кремации" />
             <p>Организация кремации</p>
-          </div>
+          </a>
+          <a href="details/ritual.html" class="service-item">
+            <img src="../images/icons/religion.png" alt="Организация отпевания" />
+            <p>Организация отпевания</p>
+          </a>
         </div>
       </div>
     </section>
@@ -67,6 +63,5 @@
       <p>&copy; 2025 МБУ "Ритуальные услуги"</p>
     </div>
   </footer>
-  <script src="../Assets/main.js"></script>
 </body>
 </html>

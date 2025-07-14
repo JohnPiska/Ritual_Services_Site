@@ -491,3 +491,47 @@ main a:hover {
 main.container {
   padding: 40px 20px;
 }
+
+/* Детальная страница услуги */
+.service-detail {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.service-detail h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  font-family: 'Merriweather', serif;
+}
+
+.service-detail img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.service-detail p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 30px;
+}
+
+/* Кнопка "Назад" */
+.btn {
+  display: inline-block;
+  padding: 10px 25px;
+  background-color: #444;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #222;
+}
