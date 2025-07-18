@@ -151,6 +151,9 @@ body {
   border: none;
   cursor: pointer;
   transition: 0.3s;
+  width: 500px; 
+  text-align: center;
+  box-sizing: border-box; 
 }
 
 .btn:hover {
@@ -166,32 +169,70 @@ body {
 .btn.small {
   font-size: 14px;
   padding: 8px 15px;
+  width: auto; 
 }
 
+
 /* Шторка */
+/* Шторка с блоками */
 .guide-drop {
   max-height: 0;
   overflow: hidden;
-  background: #f5f5f5;
-  border-radius: 0 0 8px 8px;
+  background: #f9f9f9;
   transition: max-height 0.6s ease;
-  margin-top: -10px; /* Поднимаем немного, чтобы было ближе к кнопке */
-  position: relative;
-  z-index: 1;
+  padding: 0 20px;
 }
 
 .guide-drop.open {
-  max-height: 500px; /* или auto, если хочешь без ограничения */
-}
-
-.guide-content {
+  max-height: 600px; /* достаточно для всех карточек */
   padding: 20px;
-  opacity: 0;
-  transition: opacity 0.4s ease 0.2s; /* Добавляем небольшую задержку */
 }
 
-.guide-drop.open .guide-content {
-  opacity: 1;
+.guide-blocks {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+
+.guide-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 15px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #333;
+  font-family: 'Merriweather', serif;
+  transition: 0.3s;
+}
+
+.guide-card:hover {
+  background: #ece9e6;
+  border-color: #7a6f63;
+}
+
+.guide-info h4 {
+  margin: 0 0 5px;
+  font-size: 18px;
+  color: #7a6f63;
+}
+
+.guide-info p {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.arrow {
+  font-size: 24px;
+  color: #7a6f63;
+  transition: transform 0.3s;
+}
+
+.guide-card:hover .arrow {
+  transform: translateX(5px);
 }
 
 
@@ -208,35 +249,26 @@ body {
 }
 
 /* Попап */
+/* Модальное окно */
 .modal {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0.8);
+  transform: translate(-50%, -50%);
   background: #fff;
-  padding: 30px;
-  border-radius: 8px;
+  padding: 20px;
   width: 90%;
-  max-width: 500px;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  display: none;
   z-index: 1000;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s ease;
 }
 
-/* Активный */
 .modal.active {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.modal-overlay.active {
   display: block;
 }
 
-/* Шапка попапа */
 .modal-header {
   display: flex;
   justify-content: space-between;
@@ -247,35 +279,180 @@ body {
 .modal-header h3 {
   margin: 0;
   font-size: 20px;
-  color: var(--primary-dark);
+  color: #333;
 }
 
 .modal-close {
   background: transparent;
   border: none;
-  font-size: 22px;
+  font-size: 20px;
   cursor: pointer;
-  color: #666;
 }
 
-/* Форма */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
 .modal-form label {
-  display: block;
-  margin-bottom: 15px;
-  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: #555;
 }
 
 .modal-form input,
 .modal-form textarea {
-  width: 100%;
   padding: 10px;
-  margin-top: 5px;
-  font-family: inherit;
-  font-size: 15px;
+  border-radius: 6px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  font-size: 14px;
+  width: 100%; /* поле на всю ширину */
+  box-sizing: border-box;
 }
 
+.modal-form .btn {
+  width: 100%; /* кнопка на всю ширину */
+  text-align: center;
+}
+
+
+/* Тарифы */
+.tariffs {
+  background: #f5f5f5;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.tariffs h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.section-subtitle {
+  font-size: 16px;
+  margin-bottom: 30px;
+  color: #777;
+}
+
+.tariff-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.tariff-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tariff-card h3 {
+  color: #7a6f63;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.tariff-card ul {
+  text-align: left;
+  padding-left: 20px;
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.tariff-card .price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.tariff-card .btn.small {
+  align-self: center;
+  background-color: #7a6f63;
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.tariff-card .btn.small:hover {
+  background-color: #5e554c;
+}
+
+/* Контактная информация */
+.contact-info {
+  padding: 40px 20px;
+  background: #fff;
+}
+
+.contact-info h2 {
+  text-align: center;
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.contact-details p {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.contact-details a {
+  color: #7a6f63;
+  text-decoration: none;
+}
+
+.contact-details a:hover {
+  text-decoration: underline;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Кнопка */
+.contact-details .btn.small {
+  display: inline-block;
+  margin-top: 15px;
+  background: #7a6f63;
+  color: #fff;
+  padding: 10px 15px;
+  font-size: 14px;
+  border-radius: 6px;
+}
+
+.contact-details .btn.small:hover {
+  background: #5e554c;
+}
+
+/* Адаптив */
+@media (min-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+}
 
 /* Подвал */
 footer {
@@ -437,6 +614,10 @@ footer {
 /* Гайд */
 
 /* Стили для заголовков */
+main {
+    min-height: 100vh;
+}
+
 h1 {
   font-size: 2.5rem;
   margin-bottom: 30px;
@@ -452,6 +633,64 @@ h2 {
   border-bottom: 2px solid var(--accent-wine);
   padding-bottom: 5px;
 }
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.tab-button {
+  background: #f8f8f8; /* светлый фон */
+  color: #333;
+  border: 2px solid #7a6f63;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-family: 'Merriweather', serif;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+  background: #ece9e6;
+  color: #5e554c;
+}
+
+.tab-button.active {
+  background: #7a6f63; /* фирменный цвет */
+  color: #fff;
+  border-color: #7a6f63;
+  box-shadow: 0 4px 10px rgba(122, 111, 99, 0.3);
+}
+
+.tab-content {
+  display: none;
+  background: #fafafa;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-family: 'Merriweather', serif;
+}
+
+.tab-content.active {
+  display: block;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 
 /* Основной текст */
 main p, main ol, main ul {
