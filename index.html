@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+  <title>МБУ "Ритуальные услуги"</title>
+  <meta name="description" content="Муниципальное бюджетное учреждение 'Ритуальные услуги'. Круглосуточная организация похорон.">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container header-inner">
+      <div class="logo-block">
+        <img src="images/logo.png" alt="Логотип МБУ 'Ритуальные услуги'" class="logo-img" />
+        <div class="logo-text">
+          <strong>МБУ "Ритуальные услуги"</strong><br>
+          <small>Муниципальное бюджетное учреждение</small>
+        </div>
+      </div>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="Каталог/index.html">Каталог</a></li>
+          <li><a href="Услуги/index.html">Услуги</a></li>
+          <li><a href="О нас/index.html">О нас</a></li>
+          <li><a href="Контакты/index.html">Контакты</a></li>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img src="images/banner.jpg" alt="Ритуальные услуги" class="hero-img">
+      <div class="hero-overlay">
+        <div class="hero-buttons">
+          <button id="open-modal" class="btn">Получить консультацию</button>
+          <button id="open-guide" class="btn outline">Что делать, если умер близкий человек?</button>
+        </div>
+      </div>
+    </section>
+    
+    <div class="guide-drop" id="guide-drop">
+      <div class="guide-blocks">
+        <a href="Что делать/index.html#home" class="guide-card">
+          <div class="guide-info">
+            <h4>Дома</h4>
+            <p>Что делать, если человек умер дома? Первые шаги...</p>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+        <a href="Что делать/index.html#hospital" class="guide-card">
+          <div class="guide-info">
+            <h4>В больнице</h4>
+            <p>Как действовать при смерти в медицинском учреждении...</p>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+        <a href="Что делать/index.html#public" class="guide-card">
+          <div class="guide-info">
+            <h4>В общественном месте</h4>
+            <p>Инструкция при трагедии в транспорте или на улице...</p>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+        <a href="Что делать/index.html#abroad" class="guide-card">
+          <div class="guide-info">
+            <h4>В другом городе или стране</h4>
+            <p>Что делать, если смерть произошла вдали от дома...</p>
+          </div>
+          <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <section class="tariffs">
+      <div class="container">
+        <h2>Организация похорон</h2>
+        <p class="section-subtitle">Мы предлагаем несколько тарифов в зависимости от ваших потребностей и бюджета.</p>
+
+        <div class="tariff-cards">
+          <div class="tariff-card">
+            <h3>Базовый</h3>
+            <ul>
+              <li>Оформление документов</li>
+              <li>Транспортировка</li>
+              <li>Минимальный набор услуг</li>
+            </ul>
+            <div class="price">от 15 000 ₽</div>
+            <a href="#" class="btn small">Подробнее</a>
+          </div>
+
+          <div class="tariff-card">
+            <h3>Стандарт</h3>
+            <ul>
+              <li>Гроб, венки, крест</li>
+              <li>Транспорт и сопровождение</li>
+              <li>Организация церемонии</li>
+            </ul>
+            <div class="price">от 35 000 ₽</div>
+            <a href="#" class="btn small">Подробнее</a>
+          </div>
+
+          <div class="tariff-card">
+            <h3>Премиум</h3>
+            <ul>
+              <li>Полное сопровождение</li>
+              <li>Индивидуальный подход</li>
+              <li>VIP-услуги и поддержка 24/7</li>
+            </ul>
+            <div class="price">от 60 000 ₽</div>
+            <a href="#" class="btn small">Подробнее</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      <section class="contact-info">
+        <div class="container">
+          <h2>Контактная информация</h2>
+          <div class="contact-grid">
+            <!-- Левая колонка -->
+            <div class="contact-details">
+              <p><strong>Телефон:</strong> <a href="tel:+79991234567">+7 (999) 123-45-67</a></p>
+              <p><strong>Email:</strong> <a href="mailto:mup_ritus@bk.ru">mup_ritus@bk.ru</a></p>
+              <p><strong>Адрес:</strong> г. Пермь, ул. Старцева, 61к1</p>
+              <p><strong>Часы работы:</strong> круглосуточно</p>
+              <div class="btn-wrapper">
+                <a href="Контакты/index.html" class="btn small">Подробнее</a>
+              </div>
+            </div>
+
+            <!-- Правая колонка -->
+            <div class="contact-map">
+              <div id="map" class="map-container"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Подключаем Яндекс.Карты API -->
+      <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+      <script>
+        ymaps.ready(init);
+        function init() {
+          var myMap = new ymaps.Map("map", {
+            center: [57.989770, 56.293906], // Точные координаты
+            zoom: 18,
+            controls: ['zoomControl', 'fullscreenControl']
+          });
+
+          var myPlacemark = new ymaps.Placemark([57.989770, 56.293906], {
+            hintContent: 'МБУ "Ритуальные услуги"',
+            balloonContent: '<strong>МБУ "Ритуальные услуги"</strong><br>г. Пермь, ул. Старцева, 61к1<br>Телефон: +7 (902) 472-97-00'
+          }, {
+            preset: 'islands#redIcon'
+          });
+
+          myMap.geoObjects.add(myPlacemark);
+        }
+      </script>
+
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 МБУ "Ритуальные услуги"</p>
+    </div>
+  </footer>
+  <div class="modal-overlay" id="modal-overlay"></div>
+
+  <!-- Модальное окно -->
+  <div class="modal" id="contact-modal">
+    <div class="modal-header">
+      <h3>Обратная связь</h3>
+      <button class="modal-close" id="modal-close">✖</button>
+    </div>
+    <form class="modal-form" action="#" method="post">
+      <label>
+        Имя:
+        <input type="text" name="name" required>
+      </label>
+      <label>
+        Телефон:
+        <input type="tel" name="phone" required>
+      </label>
+      <label>
+        Сообщение:
+        <textarea name="message" rows="4" required></textarea>
+      </label>
+      <button type="submit" class="btn">Отправить</button>
+    </form>
+  </div>
+
+  <script src="Assets/main.js"></script>
+</body>
+</html>
