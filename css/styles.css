@@ -172,6 +172,27 @@ body {
   width: auto; 
 }
 
+/* 📱 Медиазапрос для адаптивности */
+@media (max-width: 768px) {
+  .hero-overlay {
+    padding-left: 20px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    width: 100%;
+    align-items: center;
+  }
+
+  .btn {
+    font-size: 16px;
+    padding: 10px 16px;
+    width: 90%; /* Ширина кнопок на мобильных */
+  }
+}
+
 
 /* Шторка */
 /* Шторка с блоками */
