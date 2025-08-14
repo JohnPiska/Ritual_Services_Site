@@ -9,24 +9,47 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <header>
-    <div class="container header-inner">
-      <div class="logo-block">
-        <img src="images/logo.png" alt="Логотип МБУ 'Ритуальные услуги'" class="logo-img" />
-        <div class="logo-text">
-          <strong>МБУ "Ритуальные услуги"</strong><br>
-          <small>Муниципальное бюджетное учреждение</small>
-        </div>
+<header>
+  <div class="container header-inner">
+    <!-- Логотип -->
+    <div class="logo-block">
+      <img src="images/logo.png" alt="Логотип МБУ 'Ритуальные услуги'" class="logo-img" />
+      <div class="logo-text">
+        <strong>МБУ "Ритуальные услуги"</strong><br>
+        <small>Муниципальное бюджетное учреждение</small>
       </div>
-      <nav>
-        <ul class="nav-menu">
-          <li><a href="Каталог/index.html">Каталог</a></li>
-          <li><a href="Услуги/index.html">Услуги</a></li>
-          <li><a href="О нас/index.html">О нас</a></li>
-          <li><a href="Контакты/index.html">Контакты</a></li>
-      </nav>
     </div>
-  </header>
+
+    <!-- Навигация для десктопа -->
+    <nav class="nav-menu-desktop">
+      <ul>
+        <li><a href="Каталог/index.html">Каталог</a></li>
+        <li><a href="Услуги/index.html">Услуги</a></li>
+        <li><a href="О нас/index.html">О нас</a></li>
+        <li><a href="Контакты/index.html">Контакты</a></li>
+      </ul>
+    </nav>
+
+    <!-- Контакты -->
+    <div class="header-contacts">
+      <a href="tel:+79991234567">📞 +7 (999) 123-45-67</a>
+      <span>📍 г. Пермь, ул. Старцева, 61к1</span>
+    </div>
+
+    <!-- Бургер -->
+    <div class="burger" id="burger">☰</div>
+  </div>
+
+  <!-- Выезжающее мобильное меню -->
+  <nav class="mobile-menu" id="mobile-menu">
+    <ul>
+      <li><a href="Каталог/index.html">Каталог</a></li>
+      <li><a href="Услуги/index.html">Услуги</a></li>
+      <li><a href="О нас/index.html">О нас</a></li>
+      <li><a href="Контакты/index.html">Контакты</a></li>
+    </ul>
+  </nav>
+</header>
 
   <main>
     <section class="hero">

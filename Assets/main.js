@@ -69,3 +69,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('mobile-menu');
+
+function toggleMenu() {
+  mobileMenu.classList.toggle('show');
+}
+
+burger.addEventListener('click', toggleMenu);
+
+// Закрытие при клике на пункт меню
+document.querySelectorAll('#mobile-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('show');
+  });
+});
