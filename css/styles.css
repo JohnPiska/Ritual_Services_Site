@@ -430,20 +430,26 @@ body {
 }
 
 .tariff-card {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 100%; /* чтобы растягивалась */
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.tariff-card .btn {
+  margin-top: auto; /* прижимаем кнопку вниз */
+  align-self: center; /* чтобы по центру */
 }
 
 .tariff-card h3 {
   color: #7a6f63;
   margin-bottom: 15px;
   font-size: 20px;
+  align-self: center; /* заголовок по центру */
 }
 
 .tariff-card ul {
@@ -459,6 +465,7 @@ body {
   font-weight: bold;
   color: #333;
   margin-bottom: 15px;
+  align-self: center; /* цену и кнопку центрируем */
 }
 
 .tariff-card .btn.small {
@@ -475,6 +482,7 @@ body {
 .tariff-card .btn.small:hover {
   background-color: #5e554c;
 }
+
 
 /* Контактная информация */
 .contact-info {
@@ -604,55 +612,77 @@ footer {
 /* О нас */
 
 .about-intro {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-bottom: 50px;
+  max-width: 1600px;
+  margin: 0 auto 50px auto;
+  padding: 0 40px;
 }
 
-.intro-content {
+.intro-columns {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  gap: 40px;
 }
 
-.intro-image img {
+/* Левая колонка */
+.left-column {
+  flex: 1;
+}
+
+.left-column .intro-image {
   width: 100%;
-  height: auto;
+  max-width: 700px;
   border-radius: 10px;
-  object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  margin-bottom: 20px;
 }
 
-.intro-text h2 {
-  font-size: 28px;
-  margin-bottom: 15px;
+.left-column h4 {
+  font-size: 22px;
+  margin-top: 20px;
+  margin-bottom: 12px;
+  color: #5a4f44;
+}
+
+.left-column ul {
+  list-style: disc;
+  margin-left: 25px;
+  margin-bottom: 20px;
+}
+
+/* Правая колонка */
+.right-column {
+  flex: 2; /* шире колонки с текстом */
+}
+
+.right-column h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
   color: #7a6f63;
 }
 
-.intro-text p {
+.right-column p {
   font-size: 18px;
-  line-height: 1.6;
-  margin-bottom: 10px;
+  line-height: 1.9;
+  margin-bottom: 18px;
   color: #333;
 }
 
-/* Для ПК — картинка и текст рядом */
-@media (min-width: 768px) {
-  .intro-content {
-    flex-direction: row;
-    align-items: center;
+/* Адаптив */
+@media (max-width: 1024px) {
+  .intro-columns {
+    flex-direction: column;
   }
 
-  .intro-image {
+  .left-column, .right-column {
     flex: 1;
   }
 
-  .intro-text {
-    flex: 1;
-    padding-left: 30px;
+  .left-column .intro-image {
+    max-width: 100%;
   }
 }
+
+
+
 
 
 /* Контакты */
