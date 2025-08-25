@@ -53,13 +53,13 @@ header {
   display: flex;
   align-items: center;
   gap: 8px;
-  text-decoration: none; /* Убираем подчеркивание */
-  color: inherit; /* Наследуем цвет текста */
+  text-decoration: none;
+  color: inherit;
 }
 
 .logo-block:hover {
   opacity: 0.9;
-  transform: none; /* Убираем трансформацию если была */
+  transform: none;
 }
 
 .logo-img {
@@ -67,7 +67,6 @@ header {
   height: auto; 
   object-fit: contain;
 }
-
 
 .logo-text strong {
   font-size: 1rem;
@@ -86,14 +85,72 @@ header {
   padding: 0;
 }
 
+.nav-menu-desktop > ul > li {
+  position: relative;
+}
+
 .nav-menu-desktop a {
   color: white;
   text-decoration: none;
   font-weight: 700;
+  display: block;
+  padding: 10px 0;
 }
 
-.nav-menu-desktop a:hover {
+.nav-menu-desktop > ul > li > a:hover {
   color: var(--accent-wine);
+}
+
+/* Стили для выпадающего меню */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--primary-dark);
+  min-width: 200px;
+  padding: 10px 0;
+  list-style: none;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1001;
+  border-top: 2px solid var(--accent-wine);
+}
+
+.dropdown-menu li {
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--accent-wine);
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .header-contacts {
@@ -101,25 +158,32 @@ header {
   flex-direction: column;
   align-items: flex-end;
   font-size: 0.85rem;
+  gap: 5px;
 }
 
 .header-contacts a {
   color: white;
   text-decoration: none;
+  white-space: nowrap;
+}
+
+.header-contacts span {
+  white-space: nowrap;
 }
 
 .burger {
   display: none;
   font-size: 1.8rem;
   cursor: pointer;
-  color: white; /* Белый бургер */
+  color: white;
+  margin-left: 15px;
 }
 
 /* Мобильное меню */
 .mobile-menu {
   position: fixed;
   top: 0;
-  right: -250px; /* спрятано */
+  right: -250px;
   width: 250px;
   height: 100%;
   background: var(--primary-dark);
@@ -149,15 +213,30 @@ header {
   right: 0;
 }
 
+.dropdown-toggle .arrow {
+  font-size: 0.7em;
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.dropdown:hover .dropdown-toggle .arrow {
+  transform: rotate(180deg);
+}
+
 /* Адаптив */
 @media (max-width: 900px) {
   .nav-menu-desktop {
-    display: none; /* Прячем меню на мобильных */
+    display: none;
   }
   .header-contacts {
-    display: none; /* Прячем контакты на мобильных */
+    display: none;
   }
   .burger {
+    display: block;
+  }
+  
+  .mobile-menu li {
     display: block;
   }
 }
