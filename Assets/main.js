@@ -146,3 +146,47 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const carouselTrack = document.getElementById("news-carousel-track");
+  if (!carouselTrack) return;
+
+  fetch("Новости/news.json") // путь к JSON
+    .then(res => res.json())
+    .then(newsList => {
+      newsList.forEach(news => {
+        const card = document.createElement("div");
+        card.classList.add("news-card");
+        card.innerHTML = `
+          <img src="Новости/${news.image}" alt="${news.title}">
+          <h3>${news.title}</h3>
+          <p>${news.description}</p>
+        `;
+        carouselTrack.appendChild(card);
+      });
+    });
+
+  const prevBtn = document.querySelector(".carousel-btn.prev");
+  const nextBtn = document.querySelector(".carousel-btn.next");
+  let currentIndex = 0;
+
+  function updateCarousel() {
+    const cardWidth = document.querySelector(".news-card").offsetWidth + 20;
+    carouselTrack.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+  }
+
+  nextBtn.addEventListener("click", () => {
+    if (currentIndex < carouselTrack.children.length - 1) {
+      currentIndex++;
+      updateCarousel();
+    }
+  });
+
+  prevBtn.addEventListener("click", () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateCarousel();
+    }
+  });
+});
