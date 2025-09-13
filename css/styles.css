@@ -229,15 +229,23 @@ header {
   .nav-menu-desktop {
     display: none;
   }
-  .header-contacts {
-    display: none;
-  }
+
   .burger {
     display: block;
   }
   
   .mobile-menu li {
     display: block;
+  }
+}
+@media (max-width: 1100px) {
+  .logo-text {
+    display: none;
+  }
+}
+@media (max-width: 770px) {
+  .header-contacts {
+    display: none;
   }
 }
 
@@ -563,13 +571,50 @@ body {
 }
 
 /* Новости(карусель) */
+/* --- Карточки новостей на странице Новости --- */
+.news-page .news-card {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.news-page .news-card:hover {
+  transform: scale(1.02);
+}
+
+.news-page .news-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.news-page .news-card h3 {
+  font-size: 20px;
+  margin: 15px;
+}
+
+.news-page .news-card p {
+  font-size: 16px;
+  margin: 0 15px 20px;
+  color: #444;
+}
+
+/* --- Новости в карусели --- */
 .news-carousel {
   margin: 50px 0;
+  text-align: center; /* чтобы заголовок и кнопка были по центру */
 }
 
 .news-carousel h2 {
-  text-align: center;
   margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .carousel-wrapper {
@@ -580,6 +625,7 @@ body {
 .carousel-track {
   display: flex;
   transition: transform 0.4s ease-in-out;
+  white-space: nowrap; /* оставляем для горизонтального расположения */
 }
 
 .news-card {
@@ -591,7 +637,8 @@ body {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   overflow: hidden;
   flex-shrink: 0;
-  
+  display: inline-block; /* фикс для горизонтальной линии */
+  vertical-align: top;
 }
 
 .news-card img {
@@ -613,7 +660,7 @@ body {
 
 .carousel-btn {
   position: absolute;
-  top: 40%;
+  top: 50%;
   transform: translateY(-50%);
   background: rgba(0,0,0,0.5);
   border: none;
@@ -631,11 +678,32 @@ body {
 }
 
 .carousel-btn.prev {
-  left: 5px;
+  left: 10px;
 }
 
 .carousel-btn.next {
-  right: 5px;
+  right: 10px;
+}
+
+/* Кнопка "Все новости" */
+.news-carousel .btn-wrapper {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.news-carousel .btn-wrapper .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: #444;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.2s;
+  margin: 0 auto;       /* центрируем */
+}
+
+.news-carousel .btn-wrapper .btn:hover {
+  background: #222;
 }
 
 
@@ -1403,4 +1471,72 @@ main.container {
 
 .close-modal:hover {
     color: #000;
+}
+
+/* Кладбища */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background: #f9f9f9;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: #f1f1f1;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background: #fafafa;
+}
+
+.highlight {
+  background: #fff7c2;
+  font-weight: bold;
+}
+
+/* 📱 Адаптивность */
+@media (max-width: 768px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead tr {
+    display: none;
+  }
+
+  td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    padding: 10px;
+  }
+
+  td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+  }
 }
