@@ -1475,46 +1475,48 @@ main.container {
 
 /* Кладбища */
 
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  background: #f9f9f9;
-  color: #333;
+.cemeteries-section {
+  padding: 40px 0;
 }
 
-h1 {
+.cemeteries-section h2 {
   text-align: center;
   margin-bottom: 20px;
 }
 
-table {
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.cemeteries-table {
   width: 100%;
   border-collapse: collapse;
   background: #fff;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-th, td {
+.cemeteries-table th,
+.cemeteries-table td {
   border: 1px solid #ddd;
-  padding: 12px;
+  padding: 10px 15px;
   text-align: left;
   vertical-align: top;
 }
 
-th {
-  background: #f1f1f1;
+.cemeteries-table th {
+  background: #f7f7f7;
   font-weight: bold;
 }
 
-tr:nth-child(even) {
+.cemeteries-table tr:nth-child(even) {
   background: #fafafa;
 }
 
-.highlight {
-  background: #fff7c2;
+.cemeteries-table td[rowspan] {
   font-weight: bold;
+  background: #fdfdfd;
 }
+
 
 /* 📱 Адаптивность */
 @media (max-width: 768px) {
