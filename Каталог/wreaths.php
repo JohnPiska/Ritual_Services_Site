@@ -62,31 +62,143 @@
 </header>
 
   <main class="container">
-    <h1 class="page-title">Гробы</h1>
-    <p class="category-description">В нашем каталоге представлены гробы различного дизайна и стоимости, чтобы удовлетворить все пожелания.</p>
+    <h1 class="page-title">Венки</h1>
+    <p class="category-description">В нашем каталоге представлены венки различного дизайна и стоимости, чтобы удовлетворить все пожелания.</p>
 
     <section class="products-grid">
       <!-- Товар 1 -->
       <div class="product-item">
-        <img src="../images/products/wreath1.jpg" alt="Гроб деревянный">
+        <img src="../images/products/1.jpg" alt="Венок">
         <h3>Венок</h3>
-        <p class="price">12 000 ₽</p>
+        <p class="price"></p>
         <a href="#" class="btn small">Заказать</a>
       </div>
 
       <!-- Товар 2 -->
       <div class="product-item">
-        <img src="../images/products/wreath2.jpg" alt="Гроб лакированный">
+        <img src="../images/products/2.jpg" alt="Венок">
         <h3>Венок</h3>
-        <p class="price">18 500 ₽</p>
+        <p class="price"></p>
         <a href="#" class="btn small">Заказать</a>
       </div>
 
       <!-- Товар 3 -->
       <div class="product-item">
-        <img src="../images/products/wreath3.jpg" alt="Гроб VIP">
+        <img src="../images/products/3.jpg" alt="Венок">
         <h3>Венок</h3>
-        <p class="price">35 000 ₽</p>
+        <p class="price"></p>
+        <a href="#" class="btn small">Заказать</a>
+      </div>
+
+      <div class="product-item">
+        <img src="../images/products/4.jpg" alt="Венок">
+        <h3>Венок</h3>
+        <p class="price"></p>
+        <a href="#" class="btn small">Заказать</a>
+      </div>
+
+      <div class="product-item">
+        <img src="../images/products/5.jpg" alt="Венок">
+        <h3>Венок</h3>
+        <p class="price"></p>
+        <a href="#" class="btn small">Заказать</a>
+      </div>
+
+      <div class="product-item">
+        <img src="../images/products/6.jpg" alt="Венок">
+        <h3>Венок</h3>
+        <p class="price"></p>
+        <a href="#" class="btn small">Заказать</a>
+      </div>
+
+      <div class="product-item">
+        <img src="../images/products/7.jpg" alt="Венок">
+        <h3>Венок</h3>
+        <p class="price"></p>
+        <a href="#" class="btn small">Заказать</a>
+      </div>
+
+      <div class="product-item">
+        <img src="../images/products/8.jpg" alt="Венок">
+        <h3>Венок</h3>
+        <p class="price"></p>
+        <a href="#" class="btn small">Заказать</a>
+      </div>
+
+      <div class="product-item">
+        <img src="../images/products/9.jpg" alt="Венок">
+        <h3>Венок</h3>
+        <p class="price"></p>
+        <a href="#" class="btn small">Заказать</a>
+      </div>
+
+      <div class="product-item">
+        <img src="../images/products/10.jpg" alt="Венок">
+        <h3>Венок</h3>
+        <p class="price"></p>
+        <a href="#" class="btn small">Заказать</a>
+      </div>
+
+      <div class="product-item">
+        <img src="../images/products/11.jpg" alt="Венок">
+        <h3>Венок</h3>
+        <p class="price"></p>
+        <a href="#" class="btn small">Заказать</a>
+      </div>
+
+      <div class="product-item">
+        <img src="../images/products/12.jpg" alt="Венок">
+        <h3>Венок</h3>
+        <p class="price"></p>
+        <a href="#" class="btn small">Заказать</a>
+      </div>
+
+      <div class="product-item">
+        <img src="../images/products/13.jpg" alt="Венок">
+        <h3>Венок</h3>
+        <p class="price"></p>
+        <a href="#" class="btn small">Заказать</a>
+      </div>
+
+      <div class="product-item">
+        <img src="../images/products/14.jpg" alt="Венок">
+        <h3>Венок</h3>
+        <p class="price"></p>
+        <a href="#" class="btn small">Заказать</a>
+      </div>
+
+      <div class="product-item">
+        <img src="../images/products/15.jpg" alt="Венок">
+        <h3>Венок</h3>
+        <p class="price"></p>
+        <a href="#" class="btn small">Заказать</a>
+      </div>
+
+      <div class="product-item">
+        <img src="../images/products/16.jpg" alt="Венок">
+        <h3>Венок</h3>
+        <p class="price"></p>
+        <a href="#" class="btn small">Заказать</a>
+      </div>
+
+      <div class="product-item">
+        <img src="../images/products/17.jpg" alt="Венок">
+        <h3>Венок</h3>
+        <p class="price"></p>
+        <a href="#" class="btn small">Заказать</a>
+      </div>
+
+      <div class="product-item">
+        <img src="../images/products/18.jpg" alt="Венок">
+        <h3>Венок</h3>
+        <p class="price"></p>
+        <a href="#" class="btn small">Заказать</a>
+      </div>
+
+      <div class="product-item">
+        <img src="../images/products/19.jpg" alt="Венок">
+        <h3>Венок</h3>
+        <p class="price"></p>
         <a href="#" class="btn small">Заказать</a>
       </div>
     </section>
