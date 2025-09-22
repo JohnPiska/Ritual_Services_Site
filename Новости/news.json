@@ -1,14 +1,14 @@
 [
   {
-    "title": "Открытие нового филиала",
-    "description": "Мы открыли новый филиал в центре города.",
-    "image": "images/news1.jpg",
-    "content": "Подробная новость о новом филиале..."
+    "title": "Антитеррор",
+    "description": "",
+    "image": "../images/antiterror.jpg",
+    "content": ""
   },
   {
-    "title": "Обновление услуг",
-    "description": "Мы расширили список предоставляемых услуг.",
-    "image": "images/news2.jpg",
+    "title": "Осторожно клещи!",
+    "description": "",
+    "image": "../images/attention.jpg",
     "content": "Теперь доступны новые удобные сервисы..."
   }
 ]
