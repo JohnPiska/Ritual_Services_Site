@@ -159,11 +159,14 @@ document.addEventListener("DOMContentLoaded", function () {
         const card = document.createElement("div");
         card.classList.add("news-card");
         card.innerHTML = `
-          <img src="Новости/${news.image}" alt="${news.title}">
-          <h3>${news.title}</h3>
-          <p>${news.description}</p>
-        `;
-        carouselTrack.appendChild(card);
+            <a href="news-detail.html?id=${news.id}" class="news-link">
+              <img src="Новости/${news.image}" alt="${news.title}">
+              <div class="news-content">
+                <h3>${news.title}</h3>
+                <p>${news.description}</p>
+              </div>
+            </a>
+          `;
       });
     });
 
@@ -190,3 +193,29 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
+
+  if (!id) return;
+
+  fetch("news.json")
+    .then(res => res.json())
+    .then(newsList => {
+      const news = newsList.find(n => n.id == id);
+      if (!news) {
+        document.querySelector(".news-detail").innerHTML = "<p>Новость не найдена</p>";
+        return;
+      }
+
+      document.getElementById("news-title").textContent = news.title;
+      document.getElementById("news-image").src = "Новости/" + news.image;
+      document.getElementById("news-image").alt = news.title;
+      document.getElementById("news-content").textContent = news.fullText;
+    })
+    .catch(() => {
+      document.querySelector(".news-detail").innerHTML = "<p>Ошибка загрузки новости</p>";
+    });
+});
+

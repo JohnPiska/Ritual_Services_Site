@@ -1,14 +1,16 @@
 [
   {
+    "id": 1,
     "title": "Антитеррор",
     "description": "",
     "image": "../images/antiterror.jpg",
     "content": ""
   },
   {
+    "id": 2,
     "title": "Осторожно клещи!",
     "description": "",
     "image": "../images/attention.jpg",
-    "content": "Теперь доступны новые удобные сервисы..."
+    "content": ""
   }
 ]
