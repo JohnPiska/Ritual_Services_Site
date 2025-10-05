@@ -101,121 +101,140 @@ document.addEventListener("click", (e) => {
 });
 
 //========= Новости ============
-
-document.addEventListener("DOMContentLoaded", function () {
+// Assets/main.js
+document.addEventListener("DOMContentLoaded", () => {
+  const newsJsonPath = "news.json";
   const newsContainer = document.getElementById("news-container");
-  if (!newsContainer) return; // чтобы не ломалось на других страницах
-
   const modal = document.getElementById("news-modal");
-  const closeModal = document.getElementById("close-modal");
+  const closeBtn = document.getElementById("close-modal");
   const modalTitle = document.getElementById("modal-title");
   const modalImage = document.getElementById("modal-image");
-  const modalContent = document.getElementById("modal-content");
+  const modalText = document.getElementById("modal-text");
 
-  fetch("news.json")
-    .then(response => response.json())
-    .then(newsList => {
-      newsList.forEach(news => {
-        const card = document.createElement("div");
-        card.classList.add("news-card");
-
-        card.innerHTML = `
-          <img src="${news.image}" alt="${news.title}">
-          <h3>${news.title}</h3>
-          <p>${news.description}</p>
-        `;
-
-        card.addEventListener("click", () => {
-          modalTitle.textContent = news.title;
-          modalImage.src = news.image;
-          modalContent.textContent = news.content;
-          modal.style.display = "block";
-        });
-
-        newsContainer.appendChild(card);
-      });
-    });
-
-  closeModal.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
-
-  window.addEventListener("click", (event) => {
-    if (event.target === modal) {
-      modal.style.display = "none";
+  // Функция открытия модального окна
+  function openModal(newsItem) {
+    if (!modal || !modalTitle) {
+      console.error("Модальное окно не найдено");
+      return;
     }
-  });
-});
-
-
-document.addEventListener("DOMContentLoaded", function () {
-  const carouselTrack = document.getElementById("news-carousel-track");
-  if (!carouselTrack) return;
-
-  fetch("Новости/news.json") // путь к JSON
-    .then(res => res.json())
-    .then(newsList => {
-      newsList.forEach(news => {
-        const card = document.createElement("div");
-        card.classList.add("news-card");
-        card.innerHTML = `
-            <a href="news-detail.html?id=${news.id}" class="news-link">
-              <img src="Новости/${news.image}" alt="${news.title}">
-              <div class="news-content">
-                <h3>${news.title}</h3>
-                <p>${news.description}</p>
-              </div>
-            </a>
-          `;
-      });
-    });
-
-  const prevBtn = document.querySelector(".carousel-btn.prev");
-  const nextBtn = document.querySelector(".carousel-btn.next");
-  let currentIndex = 0;
-
-  function updateCarousel() {
-    const cardWidth = document.querySelector(".news-card").offsetWidth + 20;
-    carouselTrack.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    
+    // Заполняем модальное окно данными
+    modalTitle.textContent = newsItem.title || "Заголовок отсутствует";
+    modalImage.src = newsItem.image || "";
+    modalImage.alt = newsItem.title || "";
+    
+    // Если нет контента, используем заглушку
+    const content = newsItem.content || newsItem.description || "Подробная информация будет добавлена позже.";
+    modalText.textContent = content;
+    
+    // Показываем модальное окно
+    modal.classList.add("active");
+    document.body.style.overflow = "hidden";
+    
+    console.log("Модальное окно открыто:", newsItem.title);
   }
 
-  nextBtn.addEventListener("click", () => {
-    if (currentIndex < carouselTrack.children.length - 1) {
-      currentIndex++;
-      updateCarousel();
+  // Функция закрытия модального окна
+  function closeModal() {
+    if (!modal) return;
+    modal.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+
+  // Инициализация обработчиков событий
+  function initModalHandlers() {
+    // Закрытие по клику на фон
+    if (modal) {
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
     }
-  });
 
-  prevBtn.addEventListener("click", () => {
-    if (currentIndex > 0) {
-      currentIndex--;
-      updateCarousel();
+    // Закрытие по кнопке
+    if (closeBtn) {
+      closeBtn.addEventListener("click", closeModal);
     }
-  });
-});
 
-document.addEventListener("DOMContentLoaded", () => {
-  const params = new URLSearchParams(window.location.search);
-  const id = params.get("id");
-
-  if (!id) return;
-
-  fetch("news.json")
-    .then(res => res.json())
-    .then(newsList => {
-      const news = newsList.find(n => n.id == id);
-      if (!news) {
-        document.querySelector(".news-detail").innerHTML = "<p>Новость не найдена</p>";
-        return;
+    // Закрытие по Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("active")) {
+        closeModal();
       }
-
-      document.getElementById("news-title").textContent = news.title;
-      document.getElementById("news-image").src = "Новости/" + news.image;
-      document.getElementById("news-image").alt = news.title;
-      document.getElementById("news-content").textContent = news.fullText;
-    })
-    .catch(() => {
-      document.querySelector(".news-detail").innerHTML = "<p>Ошибка загрузки новости</p>";
     });
-});
+  }
 
+  // Загрузка и отображение новостей
+  function loadNews() {
+    fetch(newsJsonPath)
+      .then(res => {
+        if (!res.ok) throw new Error(`Ошибка загрузки: ${res.status}`);
+        return res.json();
+      })
+      .then(newsList => {
+        console.log("Загружено новостей:", newsList.length);
+        renderNewsCards(newsList);
+      })
+      .catch(err => {
+        console.error("Ошибка загрузки новостей:", err);
+        showError();
+      });
+  }
+
+  // Рендеринг карточек новостей
+  function renderNewsCards(newsList) {
+    if (!newsContainer) {
+      console.error("Контейнер новостей не найден");
+      return;
+    }
+
+    newsContainer.innerHTML = ""; // Очищаем контейнер
+
+    if (newsList.length === 0) {
+      newsContainer.innerHTML = '<p>Новости отсутствуют</p>';
+      return;
+    }
+
+    newsList.forEach(item => {
+      const card = document.createElement("div");
+      card.className = "news-card";
+      
+      // Если нет описания, используем заглушку
+      const description = item.description || "Нажмите для просмотра подробной информации";
+      
+      card.innerHTML = `
+        <img src="${item.image || ''}" alt="${item.title || ''}" onerror="this.style.display='none'">
+        <div class="news-content">
+          <h3>${item.title || 'Без названия'}</h3>
+          <p>${description}</p>
+        </div>
+      `;
+      
+      // Открываем модальное окно при клике на карточку
+      card.addEventListener("click", () => {
+        console.log("Клик по карточке:", item.title);
+        openModal(item);
+      });
+      
+      newsContainer.appendChild(card);
+    });
+  }
+
+  // Показать сообщение об ошибке
+  function showError() {
+    if (newsContainer) {
+      newsContainer.innerHTML = `
+        <div class="error-message">
+          <p>Ошибка загрузки новостей. Пожалуйста, попробуйте позже.</p>
+        </div>
+      `;
+    }
+  }
+
+  // Запуск всех функций
+  initModalHandlers();
+  loadNews();
+  
+  console.log("Скрипт новостей инициализирован");
+});

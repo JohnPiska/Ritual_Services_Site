@@ -346,9 +346,9 @@ body {
 }
 
 
-/* Шторка */
+/* Шторка
 /* Шторка с блоками */
-.guide-drop {
+/* .guide-drop {
   max-height: 0;
   overflow: hidden;
   background: #f9f9f9;
@@ -358,7 +358,7 @@ body {
 
 .guide-drop.open {
   max-height: 600px; /* достаточно для всех карточек */
-  padding: 20px;
+  /* padding: 20px;
 }
 
 .guide-blocks {
@@ -406,7 +406,76 @@ body {
 
 .guide-card:hover .arrow {
   transform: translateX(5px);
+}  */
+
+/* ---------- ШТОРКА: ТЕКСТОВЫЙ ВАРИАНТ ---------- */
+.guide-drop {
+  max-height: 0;
+  overflow: hidden;
+  background: #f9f9f9;
+  transition: max-height 0.6s ease;
+  padding: 0 20px;
+  border-top: 2px solid #ddd;
 }
+
+.guide-drop.open {
+  max-height: 800px;
+  padding: 30px 20px;
+}
+
+.guide-text {
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: 'Merriweather', serif;
+  color: #333;
+  line-height: 1.7;
+}
+
+.guide-text h2 {
+  text-align: center;
+  color: #7a6f63;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.guide-text ol {
+  counter-reset: item;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.guide-text li {
+  list-style: none;
+  position: relative;
+  margin-bottom: 20px;
+  padding-left: 35px;
+  font-size: 17px;
+}
+
+.guide-text li::before {
+  counter-increment: item;
+  content: counter(item) ".";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #7a6f63;
+  font-weight: bold;
+}
+
+.guide-text strong {
+  color: #000;
+}
+
+.guide-important {
+  margin-top: 25px;
+  padding: 15px 20px;
+  background: #fff5e6;
+  border-left: 5px solid #e0a85c;
+  border-radius: 6px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
 
 
 /* Затемнение фона */
@@ -1179,6 +1248,23 @@ main.container {
   transition: background-color 0.3s ease;
 }
 
+.section-header {
+  display: flex;
+  justify-content: center;   /* центрируем весь блок */
+  align-items: center;
+  gap: 20px;                 /* расстояние между заголовком и кнопкой */
+  margin-bottom: 15px;
+}
+
+.section-header h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+}
+
+
+
 /* Каталог */
 .btn:hover {
   background-color: #222;
@@ -1207,16 +1293,43 @@ main.container {
 }
 
 .service-item img {
-  width: 120px;
-  height: 120px;
-  object-fit: contain;
-  margin-bottom: 10px;
+  width: 100%;                   /* изменяем на процентную ширину */
+  max-width: 250px;              /* максимальный размер как был */
+  height: auto;                  /* высота автоматически под ширину */
+  aspect-ratio: 1 / 1;           /* сохраняем квадратную форму */
+  object-fit: cover;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  filter: grayscale(100%);
+  transition: filter 0.4s ease, transform 0.3s ease;
 }
 
-.service-item p {
-  font-size: 18px;
-  font-weight: 600;
+.service-item:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
 }
+
+/* Адаптив для мобильных */
+@media (max-width: 768px) {
+  .services-grid {
+    gap: 20px;
+  }
+  
+  .service-item img {
+    max-width: 200px; /* немного уменьшаем максимальный размер на планшетах */
+  }
+}
+
+@media (max-width: 480px) {
+  .services-grid {
+    gap: 15px;
+  }
+  
+  .service-item img {
+    max-width: 150px; /* еще меньше на мобильных */
+  }
+}
+
 
 
 /* Карточки товаров */
@@ -1364,114 +1477,169 @@ main.container {
   opacity: 0.85;
 }
 
-/* Новости */
-/* Контейнер всех новостей */
+/* === Новости — сетка карточек === */
+/* === Новости — сетка карточек === */
 .news-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    margin: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin: 20px 0;
+  padding: 0 10px;
 }
 
-/* Карточка новости */
 .news-card {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    cursor: pointer;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .news-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
-/* Картинка новости */
 .news-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
 }
 
-/* Контент внутри карточки */
 .news-content {
-    padding: 15px;
+  padding: 14px;
+  flex: 1 1 auto;
 }
 
 .news-content h3 {
-    font-size: 20px;
-    margin: 0 0 10px;
-    color: #333;
+  margin: 0 0 8px;
+  font-size: 18px;
+  color: #222;
 }
 
 .news-content p {
-    font-size: 15px;
-    color: #666;
-    line-height: 1.4;
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.45;
 }
 
-/* Модальное окно для полной новости */
-.news-modal {
-    display: none; /* скрыто по умолчанию */
-    position: fixed;
-    top: 0;
-    left: 0;
+/* === Модальное окно === */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.65);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 85vh;
+  padding: 30px 25px 25px;
+  position: relative;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  overflow-y: auto;
+  box-sizing: border-box;
+  margin: auto;
+}
+
+.modal-content img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.modal-content h2 {
+  margin: 0 0 16px;
+  font-size: 22px;
+  color: #222;
+  line-height: 1.3;
+}
+
+.modal-content p {
+  margin: 0;
+  color: #444;
+  line-height: 1.6;
+  font-size: 15px;
+  text-align: left;
+}
+
+#close-modal {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  background: transparent;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2001;
+}
+
+#close-modal:hover {
+  color: #000;
+  background: rgba(0,0,0,0.05);
+  border-radius: 50%;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .modal {
+    padding: 15px;
+  }
+  
+  .modal-content {
+    width: 95%;
+    max-height: 90vh;
+    padding: 25px 20px 20px;
+  }
+  
+  #close-modal {
+    top: 10px;
+    right: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    padding: 10px;
+  }
+  
+  .modal-content {
     width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.7);
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    z-index: 1000;
+    padding: 20px 15px 15px;
+  }
 }
 
-.news-modal.active {
-    display: flex;
-}
 
-.news-modal-content {
-    background: #fff;
-    border-radius: 12px;
-    max-width: 800px;
-    width: 100%;
-    padding: 25px;
-    position: relative;
-}
-
-.news-modal-content img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 15px;
-    border-radius: 8px;
-}
-
-.news-modal-content h2 {
-    margin-top: 0;
-    color: #222;
-}
-
-.news-modal-content p {
-    font-size: 16px;
-    color: #444;
-    line-height: 1.6;
-}
-
-/* Кнопка закрытия */
-.close-modal {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 24px;
-    cursor: pointer;
-    color: #888;
-    transition: color 0.2s ease;
-}
-
-.close-modal:hover {
-    color: #000;
-}
 
 /* Кладбища */
 
@@ -1540,5 +1708,90 @@ main.container {
     display: block;
     margin-bottom: 5px;
     color: #555;
+  }
+}
+
+/* ---------- ОРГАНИЗАЦИЯ ПОХОРОН ---------- */
+.organization-section {
+  margin: 50px auto;
+  line-height: 1.7;
+  color: #333;
+  font-size: 18px;
+}
+
+.organization-section h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 32px;
+  color: #222;
+}
+
+.organization-content {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.organization-text {
+  flex: 2;
+}
+
+.organization-text p {
+  margin-bottom: 15px;
+}
+
+.organization-list {
+  margin: 20px 0 30px 0;
+  padding-left: 250px; /* тот же отступ, что и у обычных списков */
+  list-style: none;
+}
+
+.organization-list li {
+  position: relative;
+  margin-bottom: 12px;
+  padding-left: 28px; /* под иконку */
+  line-height: 1.6;
+  font-size: 17px;
+  color: #444;
+  border-left: 2px solid #ddd;
+}
+
+.organization-list li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #0077cc;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+
+.organization-image {
+  flex: 1;
+
+}
+
+.organization-image img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+}
+
+/* Адаптив */
+@media (max-width: 900px) {
+  .organization-content {
+    flex-direction: column;
+  }
+
+  .organization-image {
+    margin: 20px auto 0;
+    text-align: center;
+  }
+
+  .organization-image img {
+    max-width: 100%;
   }
 }

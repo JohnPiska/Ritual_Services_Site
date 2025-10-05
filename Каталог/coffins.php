@@ -69,27 +69,20 @@
     <section class="products-grid">
       <!-- Товар 1 -->
       <div class="product-item">
-        <img src="../images/products/coffin1.jpg" alt="Гроб деревянный">
-        <h3>Гроб деревянный</h3>
-        <p class="price">12 000 ₽</p>
+        <img src="../images/products/Гробы/1.jpg" alt="Гроб деревянный">
+        <h3>Гроб</h3>
+        <p class="price"></p>
         <a href="#" class="btn small">Заказать</a>
       </div>
 
       <!-- Товар 2 -->
       <div class="product-item">
-        <img src="../images/products/coffin2.jpg" alt="Гроб лакированный">
-        <h3>Гроб лакированный</h3>
-        <p class="price">18 500 ₽</p>
+        <img src="../images/products/Гробы/2.jpg" alt="Гроб лакированный">
+        <h3>Гроб</h3>
+        <p class="price"></p>
         <a href="#" class="btn small">Заказать</a>
       </div>
 
-      <!-- Товар 3 -->
-      <div class="product-item">
-        <img src="../images/products/coffin3.jpg" alt="Гроб VIP">
-        <h3>Гроб VIP</h3>
-        <p class="price">35 000 ₽</p>
-        <a href="#" class="btn small">Заказать</a>
-      </div>
     </section>
   </main>
 
