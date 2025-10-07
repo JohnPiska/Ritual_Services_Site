@@ -639,6 +639,76 @@ body {
   background-color: #5e554c;
 }
 
+/*  */
+
+/* ---------- ТАРИФ ОПТИМАЛЬНЫЙ ---------- */
+.tariff-section {
+  margin: 50px auto;
+  color: #333;
+  line-height: 1.6;
+}
+
+.tariff-section h1 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.tariff-description {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 18px;
+  color: #555;
+}
+
+.tariff-table-container {
+  overflow-x: auto;
+}
+
+.tariff-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tariff-table th,
+.tariff-table td {
+  border: 1px solid #ccc;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.tariff-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+.table-section {
+  background-color: #eaeaea;
+  font-weight: bold;
+}
+
+.total-row {
+  background-color: #f9f9f9;
+  font-weight: bold;
+}
+
+.total-text {
+  text-align: right;
+}
+
+.total-value {
+  text-align: right;
+}
+
+.italic-text {
+  font-style: italic;
+  text-align: right;
+  padding-top: 5px;
+}
+
+
 /* Новости(карусель) */
 /* --- Карточки новостей на странице Новости --- */
 .news-page .news-card {
@@ -1208,11 +1278,12 @@ main.container {
 }
 
 /* Детальная страница услуги */
+/* Детальная страница услуги */
 .service-detail {
   max-width: 800px;
   margin: 0 auto;
   padding: 40px 20px;
-  text-align: center;
+  text-align: left;
   min-height: 100vh;
 }
 
@@ -1220,6 +1291,7 @@ main.container {
   font-size: 2em;
   margin-bottom: 20px;
   font-family: 'Merriweather', serif;
+  text-align: center;
 }
 
 .service-detail img {
@@ -1230,11 +1302,64 @@ main.container {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
-.service-detail p {
+.document-content p {
   font-size: 1.1em;
   line-height: 1.6;
   color: #444;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+}
+
+.document-list {
+  margin: 20px 0;
+  padding-left: 20px;
+}
+
+.document-list li {
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.social-benefit {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.social-benefit h3 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  color: #333;
+  font-family: 'Merriweather', serif;
+}
+
+.social-benefit ul {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+.social-benefit li {
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.btn {
+  display: inline-block;
+  /* margin-top: 30px; */
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #555;
 }
 
 /* Кнопка "Назад" */
@@ -1464,7 +1589,7 @@ main.container {
 }
 
 .download-btn {
-  background: linear-gradient(45deg, #FFD43B, #FF9A00);
+  background: linear-gradient(45deg, #2C3E50, #F5F5F5);
   padding: 8px 16px;
   border-radius: 20px;
   color: black;
@@ -1712,6 +1837,7 @@ main.container {
 }
 
 /* ---------- ОРГАНИЗАЦИЯ ПОХОРОН ---------- */
+/* ---------- ОРГАНИЗАЦИЯ ПОХОРОН ---------- */
 .organization-section {
   margin: 50px auto;
   line-height: 1.7;
@@ -1732,6 +1858,18 @@ main.container {
   align-items: flex-start;
 }
 
+.organization-image {
+  flex: 1;
+}
+
+.organization-image img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  object-fit: cover;
+}
+
 .organization-text {
   flex: 2;
 }
@@ -1742,14 +1880,14 @@ main.container {
 
 .organization-list {
   margin: 20px 0 30px 0;
-  padding-left: 250px; /* тот же отступ, что и у обычных списков */
+  padding-left: 20px;
   list-style: none;
 }
 
 .organization-list li {
   position: relative;
   margin-bottom: 12px;
-  padding-left: 28px; /* под иконку */
+  padding-left: 28px;
   line-height: 1.6;
   font-size: 17px;
   color: #444;
@@ -1766,20 +1904,6 @@ main.container {
   line-height: 1.6;
 }
 
-
-.organization-image {
-  flex: 1;
-
-}
-
-.organization-image img {
-  width: 100%;
-  max-width: 600px;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  object-fit: cover;
-}
-
 /* Адаптив */
 @media (max-width: 900px) {
   .organization-content {
@@ -1787,7 +1911,7 @@ main.container {
   }
 
   .organization-image {
-    margin: 20px auto 0;
+    margin: 0 auto 20px;
     text-align: center;
   }
 
