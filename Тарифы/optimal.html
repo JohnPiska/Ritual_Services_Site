@@ -2,7 +2,6 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" href="../images/favicon.svg" type="image/svg+xml" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Оптимальный тариф | МБУ "Ритуальные услуги"</title>
   <link rel="stylesheet" href="../css/styles.css" />
@@ -24,7 +23,7 @@
       </div>
     </a>
 
-    <!-- Навигация для десктопа -->
+    <!-- Навигация -->
     <nav class="nav-menu-desktop">
       <ul>
         <li><a href="../Каталог/index.html">Каталог</a></li>
@@ -48,11 +47,9 @@
       <span>📍 г. Пермь, ул. Старцева, 61к1</span>
     </div>
 
-    <!-- Бургер -->
     <div class="burger" id="burger">☰</div>
   </div>
 
-  <!-- Выезжающее мобильное меню -->
   <nav class="mobile-menu" id="mobile-menu">
     <ul>
       <li><a href="../Каталог/index.html">Каталог</a></li>
@@ -70,7 +67,7 @@
   <section class="tariff-section">
     <h1>Тариф «Оптимальный»</h1>
     <p class="tariff-description">
-      Тариф «Оптимальный» включает полный комплекс услуг для проведения похорон.
+      Тариф «Оптимальный» включает полный комплекс услуг для достойного проведения похорон.
       Ниже представлен подробный перечень включённых услуг, изделий и их стоимости.
     </p>
 
@@ -121,52 +118,49 @@
     </div>
   </section>
 
-          <section class="contact-info">
-        <div class="container">
-          <h2>Контактная информация</h2>
-          <div class="contact-grid">
-            <!-- Левая колонка -->
-            <div class="contact-details">
-              <p><strong>Телефон:</strong> <a href="tel:+79024729700">+7 (902) 472-97-00</a></p>
-              <p><strong>Email:</strong> <a href="mailto:mup_ritus@bk.ru">mup_ritus@bk.ru</a></p>
-              <p><strong>Адрес:</strong> г. Пермь, ул. Старцева, 61к1</p>
-              <p><strong>Часы работы:</strong> круглосуточно</p>
-              <div class="btn-wrapper">
-                <a href="../Контакты/index.html" class="btn small">Подробнее</a>
-              </div>
-            </div>
-
-            <!-- Правая колонка -->
-            <div class="contact-map">
-              <div id="map" class="map-container"></div>
-            </div>
+    <!-- Контактная информация -->
+  <section class="contact-info">
+    <div class="container">
+      <h2>Контактная информация</h2>
+      <div class="contact-grid">
+        <div class="contact-details">
+          <p><strong>Телефон:</strong> <a href="tel:+79024729700">+7 (902) 472-97-00</a></p>
+          <p><strong>Email:</strong> <a href="mailto:mup_ritus@bk.ru">mup_ritus@bk.ru</a></p>
+          <p><strong>Адрес:</strong> г. Пермь, ул. Старцева, 61к1</p>
+          <p><strong>Часы работы:</strong> круглосуточно</p>
+          <div class="btn-wrapper">
+            <a href="../Контакты/index.html" class="btn small">Подробнее</a>
           </div>
         </div>
-      </section>
 
-      <!-- Подключаем Яндекс.Карты API -->
-      <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
-      <script>
-        ymaps.ready(init);
-        function init() {
-          var myMap = new ymaps.Map("map", {
-            center: [57.989770, 56.293906], // Точные координаты
-            zoom: 18,
-            controls: ['zoomControl', 'fullscreenControl']
-          });
+        <div class="contact-map">
+          <div id="map" class="map-container"></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          var myPlacemark = new ymaps.Placemark([57.989770, 56.293906], {
-            hintContent: 'МБУ "Ритуальные услуги"',
-            balloonContent: '<strong>МБУ "Ритуальные услуги"</strong><br>г. Пермь, ул. Старцева, 61к1<br>Телефон: +7 (999) 123-45-67'
-          }, {
-            preset: 'islands#redIcon'
-          });
+  <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+  <script>
+    ymaps.ready(init);
+    function init() {
+      var myMap = new ymaps.Map("map", {
+        center: [57.989770, 56.293906],
+        zoom: 18,
+        controls: ['zoomControl', 'fullscreenControl']
+      });
 
-          myMap.geoObjects.add(myPlacemark);
-        }
-      </script>
+      var myPlacemark = new ymaps.Placemark([57.989770, 56.293906], {
+        hintContent: 'МБУ "Ритуальные услуги"',
+        balloonContent: '<strong>МБУ "Ритуальные услуги"</strong><br>г. Пермь, ул. Старцева, 61к1<br>Телефон: +7 (902) 472-97-00'
+      }, {
+        preset: 'islands#redIcon'
+      });
 
-
+      myMap.geoObjects.add(myPlacemark);
+    }
+  </script>
+  
 </main>
 
 <footer>
