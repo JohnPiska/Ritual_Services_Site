@@ -89,16 +89,104 @@
   </section>
 
   <!-- Список кладбищ -->
-  <section class="cemeteries">
-    <h2>Кладбища в нашем ведении</h2>
-    <ul class="cemetery-list">
-      <li>Егошихинское кладбище</li>
-      <li>Запрудское кладбище</li>
-      <li>Кладбище «Банная гора»</li>
-      <li>Верхне-Муллинское кладбище</li>
-      <li>Воинское кладбище</li>
-    </ul>
-  </section>
+<section class="cemeteries">
+  <h2>Кладбища в нашем ведении</h2>
+
+  <div class="cemetery-grid">
+    <div class="cemetery-card">
+      <h3>Северное кладбище</h3>
+      <p><strong>Адрес:</strong> г. Пермь, ул. Красноборская, 200/1</p>
+      <div class="mini-map" id="map1"></div>
+    </div>
+
+    <div class="cemetery-card">
+      <h3>Окуловское кладбище</h3>
+      <p><strong>Адрес:</strong> напротив кладбища «Северное»</p>
+      <div class="mini-map" id="map2"></div>
+    </div>
+
+    <div class="cemetery-card">
+      <h3>Закамское кладбище</h3>
+      <p><strong>Адрес:</strong> ул. Липатова, 35</p>
+      <div class="mini-map" id="map3"></div>
+    </div>
+
+    <div class="cemetery-card">
+      <h3>Кислотные дачи</h3>
+      <p><strong>Адрес:</strong> ул. Генерала Доватора, 9/1</p>
+      <div class="mini-map" id="map4"></div>
+    </div>
+
+    <div class="cemetery-card">
+      <h3>Головановское кладбище</h3>
+      <p><strong>Адрес:</strong> ул. Фрунзе, отворот с Восточного обхода на Чусовской водозабор</p>
+      <div class="mini-map" id="map5"></div>
+    </div>
+
+    <div class="cemetery-card">
+      <h3>Верхне-Курьинское кладбище</h3>
+      <p><strong>Адрес:</strong> м/р Верхняя Курья, ул. 2-я Линия, 35</p>
+      <div class="mini-map" id="map6"></div>
+    </div>
+
+    <div class="cemetery-card">
+      <h3>Кладбище на Банной горе</h3>
+      <p><strong>Адрес:</strong> Соликамский тракт, 2 (новое)</p>
+      <div class="mini-map" id="map7"></div>
+    </div>
+
+    <div class="cemetery-card">
+      <h3>Заозерское кладбище</h3>
+      <p><strong>Адрес:</strong> м/р Турбино, отворот у остановки Турбино</p>
+      <div class="mini-map" id="map8"></div>
+    </div>
+
+    <div class="cemetery-card">
+      <h3>Южное кладбище</h3>
+      <p><strong>Адрес:</strong> Южная дамба, 1</p>
+      <div class="mini-map" id="map9"></div>
+    </div>
+
+    <div class="cemetery-card">
+      <h3>Ново-Лядовское кладбище</h3>
+      <p><strong>Адрес:</strong> посёлок Новые Ляды</p>
+      <div class="mini-map" id="map10"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Единый скрипт для всех карт -->
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+<script>
+  ymaps.ready(init);
+  function init() {
+    const cemeteries = [
+      { id: 'map1', coords: [58.066244, 56.144116] },
+      { id: 'map2', coords: [58.064691, 56.124092] },
+      { id: 'map3', coords: [58.024158, 55.934765] },
+      { id: 'map4', coords: [58.078173, 56.379988] },
+      { id: 'map5', coords: [58.131891, 56.482026] },
+      { id: 'map6', coords: [58.066665, 56.306204] },
+      { id: 'map7', coords: [58.140141, 56.413491] },
+      { id: 'map8', coords: [58.145759, 56.280414] },
+      { id: 'map9', coords: [57.990658, 56.281697] },
+      { id: 'map10', coords: [58.060108, 56.624971] }
+    ];
+
+    cemeteries.forEach(c => {
+      const map = new ymaps.Map(c.id, {
+        center: c.coords,
+        zoom: 14,
+        controls: ['zoomControl']
+      });
+      const placemark = new ymaps.Placemark(c.coords, { hintContent: 'Кладбище' }, { preset: 'islands#redIcon' });
+      map.geoObjects.add(placemark);
+    });
+  }
+</script>
+
+
+
 
   <!-- Форма обратной связи -->
   <section class="contact-form">
