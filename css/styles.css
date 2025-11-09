@@ -1871,37 +1871,55 @@ main.container {
 
 
     .table-container {
-      width: 100%;
-      overflow-x: auto;
-      margin: 30px 0;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-      -webkit-overflow-scrolling: touch; /* Плавная прокрутка на iOS */
-    }
-    
-    /* Стили для таблицы */
-    .products-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-      min-width: 800px; /* Минимальная ширина таблицы */
-      margin-bottom: 30px;
-    }
-    
-    .products-table th, .products-table td {
-      border: 1px solid #ddd;
-      padding: 12px 10px;
-      text-align: left;
-    }
-    
-    .products-table th {
-      background-color: #f2f2f2;
-      font-weight: bold;
-      position: sticky;
-      left: 0;
-      z-index: 10;
-    }
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 20px auto;
+  box-sizing: border-box;
+  padding-bottom: 10px;
+}
+
+.products-table {
+  width: 100%;
+  min-width: unset; /* убираем фиксированную ширину */
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 16px;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.products-table th,
+.products-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #ddd;
+  white-space: nowrap; /* не даёт ломать текст в ячейках */
+}
+
+.products-table th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Адаптив: уменьшаем размер шрифта и разрешаем переносы */
+@media (max-width: 600px) {
+  .products-table {
+    font-size: 14px;
+  }
+
+  .products-table th,
+  .products-table td {
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  body {
+    overflow-x: hidden; /* убираем горизонтальную прокрутку */
+  }
+}
+
     
     /* Фиксируем первую колонку (№ п/п) при горизонтальной прокрутке */
     .products-table th:first-child,
